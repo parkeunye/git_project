@@ -1,0 +1,220 @@
+:root {
+  /* color */
+  --white-color: #fff;
+  --black-color: #202020;
+  --blue-color: #4284f4;
+  --red-color: #ea4435;
+  --yellow-color: #fabc04;
+  --light-yellow-color: #ffecb1;
+  --green-color: #6fb777;
+  --light-green-color: #f0fff2;
+  --gray-color: #adadad;
+  --light-gray-color: #f6f6f6;
+  --deep-gray-color: #868686;
+  --light-skyblue-color: #618cd6;
+}
+* {
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-gray-color);
+}
+/* 사이드바 */
+.sidebar {
+  margin: 20px;
+}
+.open {
+  margin: 20px;
+  width: 100px;
+  position: fixed;
+  z-index: 999;
+  height: 60%;
+  border-radius: 0 20px 0 20px;
+  background-color: #6fb777;
+  /* 투명도 */
+  opacity: 0.75;
+  transition: width 0.7s;
+}
+.fa-bars {
+  font-size: 2em;
+  color: green;
+  cursor: pointer;
+  /* 백그라운드 없애기 */
+  background-color: transparent;
+}
+.item {
+  cursor: pointer;
+  margin: 20px;
+  color: var(--light-gray-color);
+  background-color: rgb(105, 105, 105, 0);
+}
+#book-icon {
+  font-size: 200px;
+  position: absolute;
+  /* 부모에 relative 주고 자식에 absolute 준 다음 left top 50%주고 translate 50%씩 주면 가운데 배치 */
+  left: 50%;
+  top: 50%;
+  color: var(--green-color);
+  transform: translate(-50%, -55%);
+  background-color: transparent;
+}
+#magnifying-icon {
+  display: none;
+}
+#header {
+  cursor: pointer;
+  display: inline-flex;
+  margin: 23px;
+}
+#sasac-logo {
+  font-size: 45px;
+  color: var(--green-color);
+  margin-right: 10px;
+}
+.logo-name {
+  margin: 5px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #4b4b4b;
+}
+#search-result {
+  border-radius: 15px 15px 15px 15px;
+  height: 70vh;
+  width: 900px;
+  overflow: scroll;
+  background-color: var(--white-color);
+  position: relative;
+}
+/* 스크롤바 왜 적용 안 됨? -- */
+#search-result::-webkit-scrollbar {
+  width: 7px;
+}
+/* 이거 단독으로는 사용 불가네요....ㅎㅎ ::-webkit-scrollbar 지정 후 사용*/
+#search-result::-webkit-scrollbar-thumb {
+  border-radius: 10px 50px 10px 50px;
+  background-color: var(--green-color);
+}
+#search {
+  display: inline-flex;
+}
+.content {
+  /* 부모에 relative 넣고 높이 넓이값 주기 */
+  position: relative;
+  width: 100vw;
+  height: 90vh;
+  position: fixed;
+}
+form {
+  /* 자식에 avsolute 넣고 left top에 50%씩 줘서 가운데 배치 */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -55%);
+}
+
+input[type="text"] {
+  width: 650px;
+  height: 44px;
+  font-size: 15px;
+  margin: 20px 10px 20px 55px;
+  color: var(--deep-gray-color);
+  padding-left: 10px;
+  border: 1px solid var(--green-color);
+  border-radius: 10px;
+  background-color: var(--white-color);
+}
+input[type="text"]:-webkit-autofill {
+  box-shadow: 0 0 0 30px var(--white-color) inset;
+}
+input[type="text"]::placeholder {
+  color: var(--green-color);
+}
+input[type="text"]:focus {
+  outline: none;
+}
+input[type="button"] {
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  margin-top: 22px;
+  border: none;
+  border-radius: 30px;
+  font-size: larger;
+  color: white;
+  background-color: var(--green-color);
+}
+input[type="checkbox"] {
+  margin: 10px;
+  background-color: var(--white-color);
+}
+label {
+  background-color: var(--white-color);
+}
+.img {
+  width: 150px;
+  height: 200px;
+  margin: 20px;
+}
+.book-inpoBox {
+  border-radius: 15px;
+  margin: 10px;
+  background-color: var(--white-color);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+.book-inpo {
+  display: inline-block;
+  margin-top: 80px;
+  background-color: var(--white-color);
+  overflow: scroll;
+  /* 가로 스크롤 */
+  white-space: nowrap;
+}
+.book-inpo::-webkit-scrollbar {
+  display: none;
+}
+.book-inpo > p,
+b {
+  margin: 5px;
+  background-color: var(--white-color);
+}
+.non-search {
+  color: var(--deep-gray-color);
+  background-color: var(--white-color);
+  text-align: center;
+  margin-top: 33vh;
+}
+@media screen and (max-width: 768px) {
+  input[type="text"] {
+    width: 400px;
+    margin: 20px 10px 20px 25px;
+  }
+  input[type="button"] {
+    display: none;
+  }
+  #magnifying-icon {
+    display: inline-block;
+    font-size: 25px;
+    margin: 28px 0 0 5px;
+    color: var(--green-color);
+  }
+  #search-result {
+    width: 500px;
+  }
+  #logo-name {
+    display: none;
+  }
+  #book-icon {
+    font-size: 200px;
+  }
+  .book-inpoBox {
+    display: flex;
+    flex-direction: column;
+  }
+  .book-inpo {
+    margin: 5px;
+  }
+  img {
+    padding-left: 30%;
+    background: var(--white-color);
+  }
+}
